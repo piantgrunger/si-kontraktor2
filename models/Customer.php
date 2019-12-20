@@ -44,7 +44,7 @@ class Customer extends \yii\db\ActiveRecord
                     ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
                 ],
                 // if you're using datetime instead of UNIX timestamp:
-                 'value' => new Expression('getdate()'),
+                 'value' => new Expression('CURDATE() '),
             ],
                     [
                 'class' => BlameableBehavior::className(),

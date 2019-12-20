@@ -12,7 +12,7 @@ use kartik\datecontrol\DateControl;
 $data = ArrayHelper::map(
     LevelJabatan::find()
         ->select([
-            'id_level_jabatan', "ket" => "[kode_level_jabatan]+' - '+[nama_level_jabatan]"
+            'id_level_jabatan', "ket" => "concat(kode_level_jabatan,' - ',nama_level_jabatan)"
         ])
         ->asArray()
         ->all(),
@@ -32,7 +32,7 @@ $data = ArrayHelper::map(
 
     <?= $form->field($model, 'id_level_jabatan')->widget(Select2::className(), [
         'data' => $data,
-        'options' => ['placeholder' => 'Pilih Level Jabatan\ ...'],
+        'options' => ['placeholder' => 'Pilih Level Jabatan ...'],
         'pluginOptions' => [
             'allowClear' => true
         ],

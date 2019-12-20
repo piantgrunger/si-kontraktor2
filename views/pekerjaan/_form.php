@@ -12,7 +12,7 @@ use app\models\Pekerjaan;
 $data= ArrayHelper::map(
     JenisPekerjaan::find()
         ->select([
-            'id_jenis_pekerjaan', "ket" => "[kode_jenis_pekerjaan]+' - '+[nama_jenis_pekerjaan]"
+            'id_jenis_pekerjaan', "ket" => "concat(kode_jenis_pekerjaan,' - ',nama_jenis_pekerjaan)"
         ])
         ->asArray()
         ->all(),
@@ -22,7 +22,7 @@ $data= ArrayHelper::map(
 $parent = ArrayHelper::map(
     Pekerjaan::find()
         ->select([
-            'id_pekerjaan', "ket" => "[kode_pekerjaan]+' - '+[nama_pekerjaan]"
+            'id_pekerjaan', "ket" => "concat(kode_pekerjaan,' - ',nama_pekerjaan)"
         ])
         ->asArray()
         ->all(),
